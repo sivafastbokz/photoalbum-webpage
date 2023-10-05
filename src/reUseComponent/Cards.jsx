@@ -4,8 +4,6 @@ import { Button,Typography,Card,CardMedia,CardActions,CardContent } from '@mui/m
 function Cards(){
     return(
         <>
-        {/* <Grid container spacing={4}> */}
-                  {/* <Grid> */}
                     <Card className='card'>
                       <CardMedia 
                       className='image'
@@ -25,8 +23,6 @@ function Cards(){
                         <Button size='small' color='secondary'>Edit</Button>
                       </CardActions>
                     </Card>
-                  {/* </Grid> */}
-                {/* //  </Grid> */}
         </>
     )
 }
