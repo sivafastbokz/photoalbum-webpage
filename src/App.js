@@ -1,9 +1,10 @@
-import AlbumPage from "./components/AlbumPage";
-
+// import AlbumPage from "./components/AlbumPage";
+import FullFeaturedCrudGrid from "./components/EditTable";
 function App() {
   return (
   <>
-  <AlbumPage/>
+  {/* <AlbumPage/> */}
+  <FullFeaturedCrudGrid/>
   </>
   );
 }
