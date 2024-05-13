@@ -63,36 +63,36 @@ const initialRows = [
   },
 ];
 
-function EditToolbar(props) {
-  const { setRows, setRowModesModel } = props;
+// function EditToolbar(props) {
+//   const { setRows, setRowModesModel } = props;
 
-  const handleClick = () => {
-    const id = randomId();
-    setRows((oldRows) => [...oldRows, { id, name: '', age: '', isNew: true }]);
-    setRowModesModel((oldModel) => ({
-      ...oldModel,
-      [id]: { mode: GridRowModes.Edit, fieldToFocus: 'name' },
-    }));
-  };
+//   const handleClick = () => {
+//     const id = randomId();
+//     setRows((oldRows) => [...oldRows, { id, name: '', age: '', isNew: true }]);
+//     setRowModesModel((oldModel) => ({
+//       ...oldModel,
+//       [id]: { mode: GridRowModes.Edit, fieldToFocus: 'name' },
+//     }));
+//   };
 
-  return (
-    <GridToolbarContainer>
-      <Button color="primary" startIcon={<AddIcon />} onClick={handleClick}>
-        Add record
-      </Button>
-    </GridToolbarContainer>
-  );
-}
+//   return (
+//     <GridToolbarContainer>
+//       <Button color="primary" startIcon={<AddIcon />} onClick={handleClick}>
+//         Add record
+//       </Button>
+//     </GridToolbarContainer>
+//   );
+// }
 
 export default function FullFeaturedCrudGrid() {
   const [rows, setRows] = React.useState(initialRows);
   const [rowModesModel, setRowModesModel] = React.useState({});
 
-  const handleRowEditStop = (params, event) => {
-    if (params.reason === GridRowEditStopReasons.rowFocusOut) {
-      event.defaultMuiPrevented = true;
-    }
-  };
+  // const handleRowEditStop = (params, event) => {
+  //   if (params.reason === GridRowEditStopReasons.rowFocusOut) {
+  //     event.defaultMuiPrevented = true;
+  //   }
+  // };
 
   const handleEditClick = (id) => () => {
     setRowModesModel({ ...rowModesModel, [id]: { mode: GridRowModes.Edit } });
@@ -162,7 +162,7 @@ export default function FullFeaturedCrudGrid() {
       cellClassName: 'actions',
       getActions: ({ id }) => {
         const isInEditMode = rowModesModel[id]?.mode === GridRowModes.Edit;
-
+         console.log(isInEditMode)
         if (isInEditMode) {
           return [
             <GridActionsCellItem
@@ -220,15 +220,15 @@ export default function FullFeaturedCrudGrid() {
         columns={columns}
         editMode="row"
         rowModesModel={rowModesModel}
-        onRowModesModelChange={handleRowModesModelChange}
-        onRowEditStop={handleRowEditStop}
-        processRowUpdate={processRowUpdate}
-        slots={{
-          toolbar: EditToolbar,
-        }}
-        slotProps={{
-          toolbar: { setRows, setRowModesModel },
-        }}
+        // onRowModesModelChange={handleRowModesModelChange}
+        // onRowEditStop={handleRowEditStop}
+        // processRowUpdate={processRowUpdate}
+        // slots={{
+        //   toolbar: EditToolbar,
+        // }}
+        // slotProps={{
+        //   toolbar: { setRows, setRowModesModel },
+        // }}
       />
     </Box>
   );
